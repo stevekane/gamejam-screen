@@ -7,17 +7,20 @@ module.exports = (grunt) ->
       options:
         renameRequire: true
         useStrict: false
-        prefixToRemove: 'js/'
+        prefixToRemove: 'screen/js/'
       files:
-        src: ['js/**/*.js']
-        dest: 'fruits.js'
+        src: ['screen/js/**/*.js']
+        dest: 'screen.js'
         
     regarde:
       js:
-        files: 'js/**/*.js'
-        tasks: ['livereload', 'regarde']
+        files: 'screen/js/**/*.js'
+        tasks: ['minispade', 'livereload', 'regarde']
 
   grunt.loadNpmTasks('grunt-contrib-livereload')
+  grunt.loadNpmTasks('grunt-minispade')
   grunt.loadNpmTasks('grunt-regarde')
 
-  grunt.registerTask('default', ['livereload-start', 'regarde'])
+  grunt.registerTask('default', [ 'livereload-start',
+                                  'minispade',
+                                  'regarde'])

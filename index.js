@@ -1,5 +1,4 @@
-var express = require('express')
-  , socket = require('engine.io');
+var express = require('express');
 
 var server = express();
 
